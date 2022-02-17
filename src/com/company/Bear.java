@@ -83,3 +83,4 @@ public class Bear extends AbstractMammal implements AnimalsInterface{
                 '}';
     }
 }
+
