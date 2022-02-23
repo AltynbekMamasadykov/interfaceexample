@@ -2,6 +2,7 @@ package com.company;
 
 import com.company.Animals.Bat;
 import com.company.Animals.Bear;
+import com.company.Animals.Snake;
 
 public class Main {
 
@@ -18,7 +19,13 @@ public class Main {
 //        System.out.println(bear1.amountFood());
 //        System.out.println(bear1.dailyNorm());
 
+        Snake snake1 = new Snake(17,20,"amazons","кун","жай","ургач",
+                    15,"what","whaat","whaaaat","Анаконда",
+                true,true,true,"something"
+                );
 
+//        System.out.println(snake1.tasksRequired());
+        snake1.food();
 
     }
 }

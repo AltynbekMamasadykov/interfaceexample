@@ -11,7 +11,9 @@ public class Snake extends AbstractReptile implements AnimalsInterface {
     private  boolean hungry; // ачкабы же токпу
     private String species; // жылан жей турган тамактар
 
-    public Snake(double height, int weight, String location, String timeOfDay, String season, String gender, int length, String vision, String hearingAbilities, String typeOfReproduction, String typeOfSnake, boolean poisonous, boolean irritated, boolean hungry, String species) {
+    public Snake(double height, int weight, String location, String timeOfDay, String season, String gender,
+                 int length, String vision, String hearingAbilities, String typeOfReproduction,
+                 String typeOfSnake, boolean poisonous, boolean irritated, boolean hungry,String species) {
         super(height, weight, location, timeOfDay, season, gender, length, vision, hearingAbilities, typeOfReproduction);
         this.typeOfSnake = typeOfSnake;
         this.poisonous = poisonous;
@@ -71,44 +73,44 @@ public class Snake extends AbstractReptile implements AnimalsInterface {
     @Override
     public String food() {
         String out = "";
-        String tamak ="";
-        if(this.species.equalsIgnoreCase("eggs")){
-            tamak = "eggs жедим";
-        }else if (this.species.equalsIgnoreCase("rodents")){
-            tamak = "rodents жедим";
-        }
-        System.out.println("tamak");
+        System.out.println("Жылан эмне жеди?");
+        Scanner scanner = new Scanner(System.in);
+        String tamak = scanner.nextLine();
+
+//        if(this.species.equalsIgnoreCase("eggs")){
+//            tamak = "eggs";
+//        }else if (this.species.equalsIgnoreCase("rodents")){
+//            tamak = "rodents";
+//        }
+//        System.out.println(tamak);
 
         if(tamak.equalsIgnoreCase("eggs")){
             System.out.println("Эгерде eggs жеген болсо кайсы чымчыктын тукумун жеди");
-            Scanner scanner = new Scanner(System.in);
+            scanner = new Scanner(System.in);
             String bird = scanner.nextLine();
 
 
-            switch (bird){
-
-                case "Чабалекей":
-                case "Когучкон":
-                case "Буркут":
+            switch (bird) {
+                case "Чабалекей", "Когучкон", "Буркут" -> {
                     Scanner scanner1 = new Scanner(System.in);
-                    System.out.println(bird+" жумурткасынан канчоону жедин? ");
+                    System.out.println(bird + " жумурткасынан канчоону жеди? ");
                     int quantity = scanner1.nextInt();
-                    if (quantity>10){
+                    if (quantity > 10) {
                         System.out.println("Жыландын курсагы ток");
                         this.setHungry(false);
-                    }else if(quantity<10){
+                    } else if (quantity < 10) {
                         System.out.println("Жыландын курсагы ач");
                         this.setHungry(true);
                         this.setIrritated(true);
                     }
-                    break;
+                }
             }
         }
 
         if(!tamak.equals("eggs")){
 
             System.out.println("эгерде eggs жебеген болсо анда Кайсы жаныбарды жеди ");
-            Scanner scanner = new Scanner(System.in);
+            scanner = new Scanner(System.in);
             tamak = scanner.nextLine();
             System.out.println(tamak+" га тойдубу жылан?");
             String answer = scanner.nextLine();
