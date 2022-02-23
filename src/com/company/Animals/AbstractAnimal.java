@@ -1,6 +1,6 @@
-package com.company;
+package com.company.Animals;
 
-public class AbstractAnimal {
+public abstract class AbstractAnimal {
     private double height; //бой
     private int weight;  // салмак
     private String location; //локация
@@ -65,9 +65,8 @@ public class AbstractAnimal {
         this.gender = gender;
     }
 
-    public boolean canReproduce() {
-        return false;
-    }
+
+    public abstract boolean canReproduce();
 
 
 }

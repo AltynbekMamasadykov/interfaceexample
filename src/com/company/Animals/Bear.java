@@ -1,6 +1,8 @@
-package com.company;
+package com.company.Animals;
 
-public class Bear extends AbstractMammal implements AnimalsInterface{
+import com.company.Interfaces.AnimalsInterface;
+
+public class Bear extends AbstractMammal implements AnimalsInterface {
     private int cub=0;  //мамалактары
     private int poundsOfFood; // сколько кг сьел
 
@@ -31,55 +33,62 @@ public class Bear extends AbstractMammal implements AnimalsInterface{
         if(this.getSeason().equalsIgnoreCase("кыш")){
         out = "Кышта аю уктайт,эч нерсе жебейт";
         }else if (this.getSeason().equalsIgnoreCase("жай")){
-            out = ";жайда аю балык жейт";
+            out = "жайда аю балык жейт";
         }return out;
     }
 
     @Override
     public String tasksRequired() {
         String out ="";
-        if(this.getSeason().equalsIgnoreCase("кыш")){
+        if(getSeason().equalsIgnoreCase("кыш")){
             out = "укта,укта жана укта";
-        }else if((this.getSeason().equalsIgnoreCase("жай")) && this.getTimeOfDay().equalsIgnoreCase("тун")){
+        }else if((getSeason().equalsIgnoreCase("жай")) && getTimeOfDay().equalsIgnoreCase("тун")){
             out = "кандай сонун эс алуу";
-        }else if((this.getSeason().equalsIgnoreCase("жай")) && this.getTimeOfDay().equalsIgnoreCase("кун")){
+        }else if((getSeason().equalsIgnoreCase("жай")) && getTimeOfDay().equalsIgnoreCase("кун")){
             out = "охотага чыгуу керек,болбосо ачка калабыз";
         }return out;
     }
 
     @Override
     public double dailyNorm() {
-        if(this.getPoundsOfFood()==90 && this.getSeason().equalsIgnoreCase("куз")){
-            this.setPoundsOfFood(this.getPoundsOfFood()*2);
-        }if(this.getCub()>0){
-            this.setPoundsOfFood(this.getPoundsOfFood()*((getCub()/2+2)));
-        }return this.getPoundsOfFood();
+        double dailyNorm = -1.0;
+        if(getPoundsOfFood()==90 && getSeason().equalsIgnoreCase("куз")){
+           dailyNorm = 90*2;
+        }if(getCub()>0){
+            dailyNorm = getPoundsOfFood()*((getCub()/2+2));
+        }return dailyNorm;
     }
 
     @Override
     public boolean huntForFood() {
-        return this.getTimeOfDay() != "тун" && this.getSeason() != "кыш" && this.getLocation() != "берлога";
+        return getTimeOfDay() != "тун" && getSeason() != "кыш" && getLocation() != "берлога";
     }
 
     public double amountFood(){
-        if(this.huntForFood()){
-            this.setPoundsOfFood(90);
-        }return this.getPoundsOfFood();
+        if(huntForFood()){
+            setPoundsOfFood(90);
+        }return getPoundsOfFood();
     }
 
     public boolean canReproduce(){
-        if(this.huntForFood() &&
-                this.getGender().equalsIgnoreCase("ургач") &&
-                this.getSeason().equalsIgnoreCase("жупташуу мезгили")){
-            this.setCub(this.getCub()+1);
+        if(huntForFood() &&
+                getGender().equalsIgnoreCase("ургач") &&
+                getSeason().equalsIgnoreCase("жупташуу мезгили")){
+            setCub(getCub()+1);
         }return true;
     }
 
     @Override
     public String toString() {
         return "Bear{" +
-                "cub=" + cub +
-                ", poundsOfFood=" + poundsOfFood +
+                "cub=" + cub +"\n"+
+                "poundsOfFood=" + poundsOfFood +"\n"+
+                "height=" + getHeight()+ "\n"+
+                "weight=" + getWeight()+"\n"+
+                "location=" + getLocation()+"\n"+
+                "time of day=" +getTimeOfDay()+"\n"+
+                "season=" + getSeason()+"\n"+
+                "gender=" + getGender()+"\n"+
                 '}';
     }
 }

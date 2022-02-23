@@ -1,6 +1,8 @@
-package com.company;
+package com.company.Animals;
 
-public abstract class AbstractReptile extends AbstractAnimal{
+import com.company.Animals.AbstractAnimal;
+
+public abstract class AbstractReptile extends AbstractAnimal {
     private int length; //длина
     private String vision; //зрение
     private String hearingAbilities; //способности слышать

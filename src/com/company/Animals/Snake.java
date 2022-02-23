@@ -1,8 +1,10 @@
-package com.company;
+package com.company.Animals;
+
+import com.company.Interfaces.AnimalsInterface;
 
 import java.util.Scanner;
 
-public class Snake extends AbstractReptile implements AnimalsInterface{
+public class Snake extends AbstractReptile implements AnimalsInterface {
     private String typeOfSnake;   //жыладнын туру
     private boolean poisonous; //уусу барбы же жокпу
     private  boolean irritated; //раздраженный или нет
@@ -139,5 +141,10 @@ public class Snake extends AbstractReptile implements AnimalsInterface{
     @Override
     public boolean huntForFood() {
         return this.getSeason() != "кыш" && this.isHungry();
+    }
+
+    @Override
+    public boolean canReproduce() {
+        return false;
     }
 }
